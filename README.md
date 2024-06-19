@@ -1,5 +1,5 @@
-# data-driven-materials-science
-Predicting the Bulk Modulus of Inorganic Crystals
+# Predicting the Bulk Modulus of Inorganic Crystals
+
 This project focuses on predicting the bulk modulus of inorganic crystals using machine learning techniques applied to crystal composition data. The dataset utilized is sourced from Matminer, initially comprising crystal compositions which are further enriched using the "Magpie" feature generator. The primary objective is to predict the bulk modulus, a key mechanical property of materials.
 
 Overview of the Project Structure:
