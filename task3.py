@@ -90,12 +90,20 @@ if __name__ == "__main__":
 
 ####################################################################################################
 # Plot coefficient paths for LASSO regularization using LARS
+from sklearn.linear_model import lars_path
+
+# Assuming X and y are already defined
+_, _, coefs = lars_path(X, y, method='lasso', verbose=True)
+
+# Plot all coefficients paths
 plt.figure(figsize=(10, 6))
-for coef in coefs.T:
-    plt.plot(np.abs(coef))
-plt.xlabel('Iteration')
+for i in range(coefs.shape[0]):
+    plt.plot(coefs[i, :], label=f'Feature {i}')
+
+plt.xlabel('Lambda')
 plt.ylabel('Coefficient Magnitude')
 plt.title('Coefficient Paths for LASSO Regularization (LARS)')
+#plt.legend(loc='upper right', ncol=2, fontsize='small')
 plt.show()
 
 
@@ -133,14 +141,26 @@ for num in num_features:
     mse_results.append(mse)
     r_squared_results.append(r_squared)
 
-plt.figure(figsize=(10, 6))
-plt.plot(num_features, mse_results, label='MSE')
-plt.plot(num_features, r_squared_results, label='R-squared')
-plt.xlabel('Number of Features')
-plt.ylabel('Performance Metric')
-plt.title('Model Performance vs. Number of Features')
-plt.legend()
+# Plot model performance vs. number of features (split into two panels for MSE and R-squared)
+fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 10), sharex=True)
+
+# Plot MSE on the first panel
+ax1.plot(num_features, mse_results, label='MSE', color='blue')
+ax1.set_ylabel('MSE')
+ax1.set_ylim(4500, 5500)  # Set range for MSE
+ax1.set_title('Model Performance vs. Number of Features')
+ax1.legend()
+
+# Plot R-squared on the second panel
+ax2.plot(num_features, r_squared_results, label='R-squared', color='green')
+ax2.set_xlabel('Number of Features')
+ax2.set_ylabel('R-squared')
+ax2.set_ylim(0.0, 1.0)  # Set range for R-squared
+ax2.legend()
+
+plt.tight_layout()
 plt.show()
+
 
 # Create a heatmap of correlation matrix for selected features
 selected_features_df = features_df[important_features]
