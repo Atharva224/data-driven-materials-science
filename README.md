@@ -1,15 +1,12 @@
-# 🧠 Predicting the Bulk Modulus of Inorganic Crystals
+# Predicting the Bulk Modulus of Inorganic Crystals
 
 This repository contains a data-driven machine learning pipeline developed for predicting the bulk modulus of inorganic crystals. The project was completed as part of the *Materials Informatics* module at FAU and explores PCA-based dimensionality reduction and various regression models. Techniques include Lasso, Ridge, Tree regressors, Kernel Ridge Regression, and feature selection methods.
 
 ---
 
-## 📁 Contents
 
 
----
-
-## 🧠 Key Concepts
+## Key Concepts
 
 - Dimensionality reduction using Principal Component Analysis (PCA)
 - Linear models: Least Squares, Ridge, Lasso (with regularization tuning)
@@ -22,7 +19,7 @@ This repository contains a data-driven machine learning pipeline developed for p
 
 ---
 
-## 📌 Implemented Tasks
+## Implemented Tasks
 
 | Task        | Description                                                       |
 |-------------|-------------------------------------------------------------------|
@@ -40,7 +37,7 @@ This repository contains a data-driven machine learning pipeline developed for p
 
 ---
 
-## 💻 Requirements
+## Requirements
 
 - Python 3.8+
 - Libraries: `numpy`, `scikit-learn`, `matplotlib`, `pandas`
